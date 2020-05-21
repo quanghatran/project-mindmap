@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/b2b33455b7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="resources/css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="header__logo">
+        CREATOR
+      </div>
+
+      <div class="header__list-menu">
+        <ul>
+          <li>
+            <a id="addItem" class="addElement" href="#"
+              ><i class="fas fa-plus-circle"></i>
+              <p class="description">Add an idea</p>
+            </a>
+          </li>
+          <li>
+            <a id="removeItem" href="#"
+              ><i class="fas fa-minus-circle"></i>
+              <p class="description">Remove an idea</p>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fas fa-undo"></i>
+              <p class="description">Undo last change</p>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fas fa-redo"></i>
+              <p class="description">Redo last change</p>
+            </a>
+          </li>
+          <li>
+            <div class="header__list-item--input">
+              <input type="text" placeholder="Search" />
+              <a class="input__search" href="#"
+                ><i class="fas fa-search"></i
+              ></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="header__user">
+        <a href="#" onclick="userToggle()"
+          ><img
+            src="resources/image/user.JPG"
+            alt="user"
+            width="40"
+            height="40px"
+            class="rounded-circle"
+            style="float: right;"
+        /></a>
+        <div id="user" class="header__subList-menu">
+          <div class="subList-menu--info">
+            <img
+              src="resources/image/user.JPG"
+              alt="user"
+              width="80px"
+              height="80px"
+              class="rounded-circle"
+            />
+            <h3>Quang Ha</h3>
+            <p><b>ID:</b> 21D06M1998Y</p>
+          </div>
+          <hr />
+          <div class="subList-menu--item">
+            <ul>
+              <li>
+                <a href="#"><i class="fas fa-asterisk"></i> Preferences</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-history"></i> History</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-cog"></i> Setting Account</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-question"></i> Help</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-key"></i> Log Out</a>
+              </li>
+            </ul>
+          </div>
+          <hr />
+
+          <div class="subList-menu--evaluate animated jello">
+            <a href="#"><i class="far fa-smile-wink"></i> Rating Us </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main">
+      <!-- <a class="toggle-navBar" href="#">&times;</a> -->
+      <a id="toggleMenu" class="toggle-menu" href="#" onclick="navBarToggle()"
+        ><i class="fas fa-bars"></i
+      ></a>
+      <div class="zoom">
+        <a
+          class="zoom-in description__zoom-in"
+          type="button"
+          onclick="zoomInEvent()"
+          ><i class="fas fa-search-plus"></i>
+          <p class="description">Zoom In</p>
+        </a>
+        <a class="zoom-out" type="button" onclick="zoomOutEvent()"
+          ><i class="fas fa-search-minus"></i>
+          <p class="description description__zoom-out">Zoom Out</p>
+        </a>
+      </div>
+      <!-- <a href="#" onclick="userToggle()"><img src="resources/image/user.JPG" alt="user" width="40" height="40px" class="rounded-circle" style="float: right;"></a> -->
+
+      <div class="navigation-bar">
+        <div id="navBarFormat" class="navigation-bar__format">
+          <div class="nav__format">
+            <a class="toggle-navBar" href="#" onclick="navBarToggle()"
+              >&times;</a
+            >
+
+            <!-- back navigation event-->
+            <!-- <a href="#" class="back__format" onclick="fontFunction()"><i class="fas fa-long-arrow-alt-right"></i></a> -->
+
+            <h5>FORMAT</h5>
+            <div class="format--font-size">
+              <!-- <h6>Font-size</h6> -->
+              <a id="fontSizeSmall" class="font-size__item font-size--10px"
+                >a
+                <p class="description description__10px">Small Font Size</p>
+              </a>
+              <a
+                id="fontSizeMedium"
+                href="#"
+                class="font-size__item font-size--20px"
+                >a
+                <p class="description description__20px">Medium Font Size</p>
+              </a>
+              <a
+                href="#"
+                id="fontSizeLarge"
+                class="font-size__item font-size--40px"
+                >a
+                <p class="description description__40px">Big Font Size</p>
+              </a>
+            </div>
+            <div class="format--font-style">
+              <!-- <h6>Font-size</h6> -->
+              <a href="#" id="fontStyleBold" class="font-style__item bold"
+                ><i class="fas fa-bold"></i>
+                <p class="description description__bold">Bold</p>
+              </a>
+              <a href="#" id="fontStyleItalic" class="font-style__item italic"
+                ><i class="fas fa-italic"></i>
+                <p class="description description__italic">Italic</p>
+              </a>
+              <a href="#" id="fontStyleUnderLine" class="font-style__item"
+                ><i class="fas fa-underline underline"></i>
+                <p class="description description__underline">UnderLine</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="nav__colors">
+            <h5>COLORS</h5>
+            <div class="colors--item">
+              <a id="color1" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #ffffff;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color2" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #c4c9cc;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color3" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #939799;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color4" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #454a4c;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color5" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #000000;
+                  "
+                  class="color"
+                ></span
+              ></a>
+            </div>
+            <div class="colors--item">
+              <a id="color6" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #a6433a;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color7" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #80774d;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color8" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #468c52;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color9" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #5e4d80;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color10" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #804d66;
+                  "
+                  class="color"
+                ></span
+              ></a>
+            </div>
+            <div class="colors--item">
+              <a id="color11" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #e67c73;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color12" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #ffe180;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color13" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #6bb3b3;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color14" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #33bbff;
+                  "
+                  class="color"
+                ></span
+              ></a>
+              <a id="color15" href="#"
+                ><span
+                  style="
+                    padding: 7px 15px;
+                    border-radius: 50%;
+                    background: #b36b8f;
+                  "
+                  class="color"
+                ></span
+              ></a>
+            </div>
+          </div>
+          <div class="nav__icons">
+            <h5>ICONS</h5>
+            <div class="icon-item">
+              <a id="icon1" href="#"
+                ><i id="getIcon1" class="far fa-smile"></i
+              ></a>
+              <a id="icon2" href="#"><i class="far fa-surprise"></i></a>
+              <a id="icon3" href="#"><i class="far fa-smile-wink"></i></a>
+              <a id="icon4" href="#"><i class="far fa-flushed"></i></a>
+              <a id="icon5" href="#"><i class="far fa-dizzy"></i></a>
+            </div>
+            <div class="icon-item">
+              <a id="icon6" href="#"
+                ><i class="fas fa-exclamation-triangle"></i
+              ></a>
+              <a id="icon7" href="#"><i class="far fa-bell"></i></a>
+              <a id="icon8" href="#"><i class="fas fa-exclamation"></i></a>
+              <a id="icon9" href="#"><i class="fas fa-check"></i></a>
+              <a id="icon10" href="#"><i class="fas fa-times"></i></a>
+            </div>
+          </div>
+          <div class="nav__advances">
+            <h5>ADVANCES</h5>
+            <div class="advance-item">
+              <a href="#"
+                ><i class="far fa-comment-dots"></i>
+                <p class="description description__comment">Add comments</p>
+              </a>
+              <a href="#"
+                ><i class="far fa-file-word"></i>
+                <p class="description description__file">Files</p>
+              </a>
+              <a href="#"
+                ><i class="fas fa-link"></i>
+                <p class="description description__link">Links</p>
+              </a>
+            </div>
+            <div class="advance-info">
+              <div class="advance-info--comment">
+                <input type="text" />
+                <button id="btnDescription" class="btn btn-primary">Submit</button>
+              </div>
+              <div class="advance-info--link"></div>
+              <div class="advance-info--file"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--the root node-->
+      <div id="myDiv" >
+        <!-- <div id="rootItem"> -->
+        <input
+          class="rootItem"
+          id="inputField"
+          type="text"
+          placeholder="Start Your Project"
+          onfocus="focusEvent(this)"
+        />
+
+        <div class="childNode" id="tq1"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer></footer>
+
+    <script src="resources/js/main.js"></script>
+  </body>
+</html>
